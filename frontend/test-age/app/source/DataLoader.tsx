@@ -5,6 +5,7 @@ const getAgeEndpointVarMarker = "?name=";
 
 const fakeApiResponse = true;
 
+// Fetch content from the backend to display on the page
 export async function getPageContent(name : string) : Promise<ContentLine[]>{
 
   if (fakeApiResponse){
@@ -41,7 +42,8 @@ export async function getPageContent(name : string) : Promise<ContentLine[]>{
     return getLoadingError(error as string);
   }
 }
-  
+
+// Return a loading error formatted correctly
 export function getLoadingError(error : string) : ContentLine[]
 {
   let errorMsg = `{"message":[{"type": "text", "data": "Error loading content. Error: ${error}"}]}`;
@@ -50,6 +52,7 @@ export function getLoadingError(error : string) : ContentLine[]
   return messageArray as ContentLine[];
 }
 
+// Test function to simulate communication with backend
 export default function test_fakeResponse(name : string) : ContentLine[]
 {
   console.log(`TEST: === Using fake API response with name ${name}`);
