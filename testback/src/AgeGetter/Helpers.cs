@@ -4,14 +4,6 @@ using System.Text.RegularExpressions;
 
 namespace PostNLApp
 {
-    public enum Locales
-    {
-        en_us,
-        nl_nl,
-
-        // TODO
-    }
-
     public enum ErrorTypes
     {
         None,

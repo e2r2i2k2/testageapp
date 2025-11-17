@@ -1,8 +1,6 @@
 using System.Collections.Generic;
 using System;
 using System.Threading.Tasks;
-using System.Net.Http;
-using System.Text.Json;
 
 using Amazon.Lambda.Core;
 using Amazon.Lambda.APIGatewayEvents;

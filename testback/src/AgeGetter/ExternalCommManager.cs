@@ -15,13 +15,13 @@ namespace PostNLApp
         // use one instance of HttpClient for the app lifetime
         private static readonly HttpClient client = new HttpClient();
 
-        private static bool fakeAPI = true;
+        private static bool fakeAPI = false;
 
         public static async Task<StringResponse> TryGetAgeFromName(string name)
         {
             if (fakeAPI)
             {
-                return new StringResponse() { Content = "555" };
+                return new StringResponse() { Content = "555555" };
             }
 
             client.DefaultRequestHeaders.Accept.Clear();
@@ -32,9 +32,9 @@ namespace PostNLApp
             Console.WriteLine($"Sending request: {request}");
             var response = await client.GetStringAsync(request).ConfigureAwait(continueOnCapturedContext: false);
 
-
             try
             {
+                // Parse response to get age
                 Console.WriteLine($"Message received: {response}");
                 Dictionary<string, JsonElement> messageObjectDict = JsonSerializer.Deserialize<Dictionary<string, JsonElement>>(response);
 
@@ -49,6 +49,7 @@ namespace PostNLApp
                 Console.WriteLine($"Error: Could not parse age: {ex.Message}");
             }
 
+            // If this line is hit, an error occured
             return new StringResponse() { Content = "", Error = ErrorTypes.ExternalServerError };
         }
     }
