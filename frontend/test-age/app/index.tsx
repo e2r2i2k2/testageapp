@@ -1,6 +1,6 @@
 import { View } from "react-native";
-import ContentFrame from "./ContentFrame";
-import { styles } from "./styles";
+import { styles } from "./_layout";
+import ContentFrame from "./source/ContentFrame";
 
 export default function Index() {
   return (
