@@ -1,8 +1,10 @@
 import ContentLine from "../format/types";
 
+// Set to local endpoint for testing
 const getAgeEndpoint = "http://127.0.0.1:3000/getage"
 const getAgeEndpointVarMarker = "?name=";
 
+// Set to true to use a cached response for testing
 const fakeApiResponse = true;
 
 // Fetch content from the backend to display on the page
